@@ -25,6 +25,8 @@ if ! which docker-compose > /dev/null; then
 	sudo service docker start
 fi
 cp phanbook/{.env.example,.env}
+chmod 777 -R phanbook/public phanbook/content
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	sed -i 's|DB_HOST=localhost|DB_HOST=mysql|g' phanbook/.env
 else
